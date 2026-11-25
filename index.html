@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Aniversário, Meu Amor Juju ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #d64b6a;
+    --rose-deep: #a32845;
+    --blush: #f7d9df;
+    --cream: #fdf6f0;
+    --gold: #c9a27a;
+    --ink: #2e1e24;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ---------- PÉTALAS DE FUNDO ---------- */
+  .petals {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .petal {
+    position: absolute;
+    top: -10vh;
+    font-size: 1.4rem;
+    opacity: 0.55;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    0%   { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.7; }
+    100% { transform: translateY(110vh) translateX(40px) rotate(360deg); opacity: 0; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.2rem;
+    background:
+      radial-gradient(circle at 50% 20%, #fff0f3 0%, transparent 55%),
+      radial-gradient(circle at 80% 80%, #fde5ea 0%, transparent 50%),
+      var(--cream);
+    z-index: 1;
+  }
+
+  .hero .overline {
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+    animation: fadeUp 1.2s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3.2rem, 11vw, 7rem);
+    color: var(--rose-deep);
+    line-height: 1;
+    animation: fadeUp 1.4s ease 0.2s both;
+    text-shadow: 0 6px 30px rgba(214, 75, 106, 0.25);
+  }
+
+  .hero .date {
+    margin-top: 1rem;
+    font-size: clamp(1.1rem, 4vw, 1.6rem);
+    font-style: italic;
+    color: var(--rose);
+    animation: fadeUp 1.4s ease 0.5s both;
+  }
+
+  .hero .message {
+    max-width: 620px;
+    margin-top: 2rem;
+    font-size: 1.18rem;
+    color: #5a434b;
+    animation: fadeUp 1.4s ease 0.8s both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    animation: bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50%      { transform: translateY(8px); opacity: 1; }
+  }
+
+  /* ---------- CONTADOR ---------- */
+  .countdown-section {
+    position: relative;
+    z-index: 1;
+    padding: 6rem 1.2rem;
+    text-align: center;
+    background: linear-gradient(180deg, transparent, #fbe9ee 40%, transparent);
+  }
+
+  .countdown-section h2,
+  .gallery-section h2,
+  .letter-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    color: var(--rose-deep);
+    margin-bottom: 0.6rem;
+  }
+
+  .subtitle {
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 3rem;
+    letter-spacing: 0.1em;
+  }
+
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: clamp(0.8rem, 3vw, 2.4rem);
+    flex-wrap: wrap;
+  }
+
+  .cd-box {
+    background: #fff;
+    border: 1px solid var(--blush);
+    border-radius: 18px;
+    padding: 1.4rem 1.2rem;
+    min-width: 90px;
+    box-shadow: 0 16px 40px -20px rgba(163, 40, 69, 0.45);
+  }
+
+  .cd-num {
+    font-size: clamp(2rem, 7vw, 3.2rem);
+    font-weight: 600;
+    color: var(--rose);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cd-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    margin-top: 0.5rem;
+  }
+
+  /* ---------- GALERIA ---------- */
+  .gallery-section {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 1.2rem 7rem;
+    text-align: center;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.4rem;
+    max-width: 1100px;
+    margin: 3rem auto 0;
+  }
+
+  .frame {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--blush);
+    box-shadow: 0 22px 50px -26px rgba(163, 40, 69, 0.55);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+  }
+  .frame:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 32px 60px -26px rgba(163, 40, 69, 0.7);
+  }
+  .frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+  }
+  .frame:hover img { transform: scale(1.06); }
+  .frame::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(46,30,36,0.45));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .frame:hover::after { opacity: 1; }
+  .frame .caption {
+    position: absolute;
+    bottom: 1rem; left: 1rem; right: 1rem;
+    color: #fff;
+    font-style: italic;
+    font-size: 0.95rem;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.4s ease;
+    z-index: 2;
+  }
+  .frame:hover .caption { opacity: 1; transform: translateY(0); }
+
+  /* ---------- CARTA ---------- */
+  .letter-section {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 1.2rem 8rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .letter {
+    max-width: 680px;
+    background: #fff;
+    padding: clamp(2rem, 5vw, 3.6rem);
+    border-radius: 6px;
+    box-shadow: 0 40px 80px -40px rgba(163, 40, 69, 0.5);
+    position: relative;
+    border-top: 4px solid var(--rose);
+  }
+
+  .letter::before {
+    content: '❤';
+    position: absolute;
+    top: -1.4rem; left: 50%;
+    transform: translateX(-50%);
+    width: 2.8rem; height: 2.8rem;
+    background: var(--rose);
+    color: #fff;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 20px -8px var(--rose-deep);
+  }
+
+  .letter h2 { text-align: center; }
+
+  .letter p {
+    font-size: 1.12rem;
+    color: #4a353c;
+    margin-top: 1.3rem;
+    text-indent: 1.6rem;
+  }
+
+  .letter p:first-of-type { margin-top: 2rem; }
+
+  .signature {
+    font-family: 'Garamond', cursive;
+    font-size: 2rem;
+    color: var(--rose-deep);
+    text-align: right;
+    margin-top: 2rem;
+    text-indent: 0;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border-top: 1px solid var(--blush);
+  }
+
+  /* ---------- CORAÇÃO FINAL ---------- */
+  .heart-final {
+    text-align: center;
+    padding: 0 1rem 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  .heart-final button {
+    background: var(--rose);
+    color: #fff;
+    border: none;
+    padding: 1rem 2.6rem;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 18px 40px -18px var(--rose-deep);
+  }
+  .heart-final button:hover {
+    transform: translateY(-3px);
+    background: var(--rose-deep);
+    box-shadow: 0 24px 50px -18px var(--rose-deep);
+  }
+  .heart-final button:active { transform: translateY(0) scale(0.98); }
+
+  .surprise {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease, opacity 0.8s ease, margin 0.8s ease;
+    opacity: 0;
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    color: var(--rose-deep);
+    margin-top: 0;
+  }
+  .surprise.open {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 2rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- pétalas caindo -->
+<div class="petals" id="petals"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="overline">28 de novembro</p>
+  <h1>Feliz Aniversário</h1>
+  <p class="date">para o meu amor</p>
+  <p class="message">
+    Está chegando o dia dos seus 14 anos meu bem, tem muita gente que te ama muito,
+    inclusive eu, e eu espero que você tenha um dia maravilhoso, cheio de coisas 
+    boas e que você se sinta muito amada.
+  </p>
+  <span class="scroll-hint">role para baixo</span>
+</header>
+
+<!-- CONTADOR -->
+<section class="countdown-section">
+  <h2>Contagem para o seu dia</h2>
+  <p class="subtitle">cada segundo me aproxima de te ver.</p>
+  <div class="countdown" id="countdown">
+    <div class="cd-box"><div class="cd-num" id="days">00</div><div class="cd-label">dias</div></div>
+    <div class="cd-box"><div class="cd-num" id="hours">00</div><div class="cd-label">horas</div></div>
+    <div class="cd-box"><div class="cd-num" id="minutes">00</div><div class="cd-label">minutos</div></div>
+    <div class="cd-box"><div class="cd-num" id="seconds">00</div><div class="cd-label">segundos</div></div>
+  </div>
+
+<!-- CARTA -->
+<section class="letter-section">
+  <article class="letter">
+    <h2>Uma carta para você</h2>
+    <p>
+      Olha, eu não sei escrever cartas. Eu não sei escrever poemas. 
+      Eu não sei escrever textos bonitos. Mas eu sei escrever para você.
+    </p>
+    <p>
+      A primeira vez que eu te vi, eu em apaixonei, tinha medo de falar com você, 
+      mas quando eu falei, eu percebi que você era a pessoa mais incrível
+     que eu já conheci.
+    </p>
+    <p>
+      Obrigado por me escolher todos os dias, mesmo nos dias difíceis. Obrigado por
+      rir das minhas piadas ruins, por me ouvir, por me fazer querer ser melhor.
+      Você é a melhor coisa que me aconteceu — e não digo isso por dizer. Digo
+      porque é verdade.
+    </p>
+    <p>
+      Que esse novo ano de vida seja gentil com você. E que eu possa estar do seu
+      lado em cada capítulo, segurando sua mão, comemorando suas vitórias e
+      cuidando de você nos dias cinzas.
+    </p>
+    <p class="signature">Seu amor Rafael</p>
+  </article>
+</section>
+
+<!-- SURPRESA -->
+<div class="heart-final">
+  <button id="surpriseBtn">clique aqui ❤</button>
+  <div class="surprise" id="surprise">Eu te amo mais do que consigo dizer.</div>
+</div>
+
+<footer>feito à mão, com amor — 28.11</footer>
+
+<script>
+/* ---------- CONTADOR ---------- */
+// Altere para o próximo aniversário dela
+const TARGET = new Date('2026-11-28T00:00:00');
+
+const elDays    = document.getElementById('days');
+const elHours   = document.getElementById('hours');
+const elMinutes = document.getElementById('minutes');
+const elSeconds = document.getElementById('seconds');
+
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function tick() {
+  const now  = new Date();
+  let diff   = TARGET - now;
+
+  if (diff < 0) {
+    // Se já passou, mostra o que resta para o próximo ano
+    const next = new Date(TARGET);
+    next.setFullYear(now.getFullYear() + (now > TARGET ? 1 : 0));
+    diff = next - now;
+  }
+
+  const totalSec = Math.floor(diff / 1000);
+  const d = Math.floor(totalSec / 86400);
+  const h = Math.floor((totalSec % 86400) / 3600);
+  const m = Math.floor((totalSec % 3600) / 60);
+  const s = totalSec % 60;
+
+  elDays.textContent    = pad(d);
+  elHours.textContent   = pad(h);
+  elMinutes.textContent = pad(m);
+  elSeconds.textContent = pad(s);
+}
+tick();
+setInterval(tick, 1000);
+
+/* ---------- PÉTALAS ---------- */
+const petalsContainer = document.getElementById('petals');
+const symbols = ['❀', '✿', '❁', '❤', '♡'];
+
+function spawnPetal() {
+  const p = document.createElement('span');
+  p.className = 'petal';
+  p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+  p.style.left = Math.random() * 100 + 'vw';
+  p.style.fontSize = (0.9 + Math.random() * 1.4) + 'rem';
+  p.style.color = Math.random() > 0.5 ? 'var(--rose)' : 'var(--gold)';
+  p.style.animationDuration = (7 + Math.random() * 8) + 's';
+  p.style.animationDelay = Math.random() * 3 + 's';
+  petalsContainer.appendChild(p);
+
+  setTimeout(() => p.remove(), 18000);
+}
+setInterval(spawnPetal, 700);
+for (let i = 0; i < 8; i++) setTimeout(spawnPetal, i * 250);
+
+/* ---------- SURPRESA ---------- */
+const btn = document.getElementById('surpriseBtn');
+const surprise = document.getElementById('surprise');
+
+btn.addEventListener('click', () => {
+  surprise.classList.toggle('open');
+  if (surprise.classList.contains('open')) {
+    // estouro de coraçõezinhos
+    for (let i = 0; i < 18; i++) {
+      const h = document.createElement('span');
+      h.textContent = '❤';
+      h.style.position = 'fixed';
+      h.style.left = (window.innerWidth / 2) + 'px';
+      h.style.top  = (window.innerHeight / 2) + 'px';
+      h.style.color = Math.random() > 0.5 ? '#d64b6a' : '#c9a27a';
+      h.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+      h.style.pointerEvents = 'none';
+      h.style.zIndex = 9999;
+      h.style.transition = 'transform 1.2s ease-out, opacity 1.2s ease-out';
+      document.body.appendChild(h);
+      requestAnimationFrame(() => {
+        const dx = (Math.random() - 0.5) * 500;
+        const dy = -200 - Math.random() * 400;
+        h.style.transform = `translate(${dx}px, ${dy}px) rotate(${Math.random()*360}deg)`;
+        h.style.opacity = '0';
+      });
+      setTimeout(() => h.remove(), 1300);
+    }
+  }
+});
+</script>
+</body>
+</html>
